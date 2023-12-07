@@ -40,8 +40,8 @@ class Autor(models.Model):
 
 class Books(models.Model):
     title = models.CharField(max_length=200,
-                              help_text="Введите название книги",
-                              verbose_name="Название книги")
+                             help_text="Введите название книги",
+                             verbose_name="Название книги")
     genre = models.ForeignKey('Genre',
                               on_delete=models.CASCADE,
                               help_text="Выберите жанр книги",
@@ -51,16 +51,15 @@ class Books(models.Model):
                                  help_text="Выберите язык книги",
                                  verbose_name="Язык книги", null=True)
     autor = models.ManyToManyField('Autor',
-                              help_text="Выберете автора книги",
-                              verbose_name="Автор книги")
+                                   help_text="Выберете автора книги",
+                                   verbose_name="Автор книги")
     summary = models.TextField(max_length=1000,
                                help_text="Введите описание книги",
                                verbose_name="Аннотация книги"
                                )
     isbn = models.CharField(max_length=13,
-                                  help_text="Должно содержать 13 символов",
-                                  verbose_name="ISBN книги"
-                                  )
+                            help_text="Должно содержать 13 символов",
+                            verbose_name="ISBN книги")
     def __str__(self):
         return self.title
 
