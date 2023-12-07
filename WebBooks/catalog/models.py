@@ -66,6 +66,10 @@ class Books(models.Model):
     def get_absolute_url(self):
         return reverse('book-detail', args=[str(self.id)])
 
+    def display_author(self):
+        return ', '.join([autor.last_name for autor in self.autor.all()])
+    display_author.short_description = 'Авторы'
+
 
 class Status(models.Model):
     name = models.CharField(max_length=20,
