@@ -7,7 +7,7 @@ class BookInstance(models.Model):
     due_back = models.DateField()
 
 class Status(models.Model):
-    status = models.CharField()
+    status = models.CharField(max_length=30)
 class Autor(models.Model):
     name = models.CharField(max_length=30)
     date_of_birth = models.DateField()
@@ -27,7 +27,7 @@ class Genre(models.Model):
 class Books(models.Model):
     title = models.CharField(max_length=50)
     autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
-    nummary = models.CharField()
+    nummary = models.CharField(max_length=30)
     inprint = models.CharField(max_length=30)
     ISBN = models.BigIntegerField()
     genre = models

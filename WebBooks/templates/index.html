@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Title{% endblock title %}
+{% block head %}
+    <link  rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock head %}
+{% block header %}header text{% endblock header %}
+{% block content %}
+    <img src="{% static 'images/img2.jpg' %}"/>
+{% endblock content %}
+{% block footer %}подвал говна{% endblock footer %}

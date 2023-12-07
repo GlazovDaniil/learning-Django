@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Title{% endblock title %}</title>
+    {% block head %}{% endblock head %}
+</head>
+<body>
+<h1>{% block header %}header text{% endblock header %}</h1>
+{% block content %}{% endblock content %}
+<footer>{% block footer %}{% endblock footer %}</footer>
+</body>
+</html>
