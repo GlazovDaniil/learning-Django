@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Books, Autor, BookInstance, Genre
 from django.views import generic
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
 # Create your views here.
 
@@ -40,11 +42,12 @@ class AuthorsListView(generic.ListView):
     model = Autor
     paginate_by = 4
 
-def authors(requst):
+def authors(request):
     return HttpResponse("authors")
 
-
-
+def logout_view(request):
+    logout(request)
+    return redirect('/')
 
     """
     В этих фильтрах использован формат: field_name__match_type, где field_name- имя

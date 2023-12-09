@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path, include
 from catalog import views
-from django.contrib.auth.views import LogoutView
+from django.contrib.auth.views import logout_then_login
 from .settings import LOGOUT_REDIRECT_URL
 
 urlpatterns = [
@@ -32,7 +32,7 @@ urlpatterns = [
 
 urlpatterns += [
     #path('accounts/', include("accounts.urls", namespace="accounts")),
-    #re_path(r'^logout/$', LogoutView.as_view(), {'next_page': LOGOUT_REDIRECT_URL}, name='logout'),
+    path('accounts/logout/', views.logout_view, name='logout'),
     path('accounts/', include('django.contrib.auth.urls')),
 
 ]
