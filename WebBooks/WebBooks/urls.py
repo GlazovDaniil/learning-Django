@@ -17,8 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path, include
 from catalog import views
-from django.contrib.auth.views import logout_then_login
-from .settings import LOGOUT_REDIRECT_URL
 
 urlpatterns = [
     path('catalog/authors/<id>', views.authors),
@@ -31,7 +29,6 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    #path('accounts/', include("accounts.urls", namespace="accounts")),
     path('accounts/logout/', views.logout_view, name='logout'),
     path('accounts/', include('django.contrib.auth.urls')),
 
