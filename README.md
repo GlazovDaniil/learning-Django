@@ -1,4 +1,6 @@
 # learning-Django
-![image](https://github.com/GlazovDaniil/learning-Django/assets/78955311/69fa8b94-91b8-451f-9ab0-52e0f8223245)
-![image](https://github.com/GlazovDaniil/learning-Django/assets/78955311/cc8baeca-ea4e-42c5-80ef-481b749aa05f)
-![image](https://github.com/GlazovDaniil/learning-Django/assets/78955311/325314c2-a928-40f3-8e15-97268c13ccd1)
+![image](https://github.com/GlazovDaniil/learning-Django/assets/78955311/b7e2f084-1b7c-432e-a89b-9bd0ff4ff622)
+![image](https://github.com/GlazovDaniil/learning-Django/assets/78955311/3b6fde94-21ee-4c1b-822c-2ae6522088e9)
+![image](https://github.com/GlazovDaniil/learning-Django/assets/78955311/e518d987-eced-459f-b8f3-21feb1c037cc)
+![image](https://github.com/GlazovDaniil/learning-Django/assets/78955311/f3afe770-e707-4026-b253-837d2ea9e2c8)
+
