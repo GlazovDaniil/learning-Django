@@ -5,6 +5,7 @@ from django.views import generic
 from django.contrib.auth import logout
 from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import AuthorsForm
 
 # Create your views here.
 
@@ -63,6 +64,10 @@ class LoanedBooksByUserListView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         return BookInstance.objects.filter(borrower=self.request.user).filter(status__exact='1').order_by('due_back')
 
+def authors_add(request):
+    author = Autor.objects.all()
+    author_form = AuthorsForm()
+    return render(request, "catalog/authors_add.html", {'form': author_form, 'author': author})
 
     """
     В этих фильтрах использован формат: field_name__match_type, где field_name- имя
