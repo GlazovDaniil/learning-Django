@@ -6,6 +6,9 @@ from django.contrib.auth import logout
 from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import AuthorsForm
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
 
 # Create your views here.
 
@@ -99,6 +102,21 @@ def edit1(request, id):
         return HttpResponseRedirect("/authors_add/")
     else:
         return render(request, "edit1.html", {"author": author})
+
+
+class BooksCreate(CreateView):
+    model = Books
+    fields = '__all__'
+    success_url = reverse_lazy('books')
+
+class BooksUpdate(UpdateView):
+    model = Books
+    fields = '__all__'
+    success_url = reverse_lazy('books')
+
+class BooksDelete(DeleteView):
+    model = Books
+    success_url = reverse_lazy('books')
 
 
     """
