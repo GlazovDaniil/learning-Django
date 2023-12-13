@@ -30,7 +30,9 @@
                         <li><a href="{% url 'my-borrowed' %}">Мои книги</a></li>
                     {% else %}
                         <li><a href="{% url 'login' %}?next={{request.path}}">Войти в аккаунт</a></li>
+
                     {% endif %}
+                    <li><a href="{% url 'authors_add' %}">Редактировать авторов</a></li>
                 </ul>
                 {% endblock sidebar %}
             </div>

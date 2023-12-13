@@ -19,6 +19,10 @@ from django.urls import path, re_path, include
 from catalog import views
 
 urlpatterns = [
+    path('edit1/<int:id>', views.edit1, name="edit1"),
+    path('create/', views.create, name='create'),
+    path('delete/<int:id>', views.delete, name="delete"),
+
     path('catalog/authors/<id>', views.authors),
     re_path(r'^authors/$', views.AuthorsListView.as_view(), name='authors'),
     re_path(r'^books/$', views.BookListView.as_view(), name='books'),
@@ -31,6 +35,6 @@ urlpatterns = [
 urlpatterns += [
     path('accounts/logout/', views.logout_view, name='logout'),
     path('accounts/', include('django.contrib.auth.urls')),
-    re_path(r'^mybooks/$', views.LoanedBooksByUserListView.as_view(), name='my-borrowed')
-
+    re_path(r'^mybooks/$', views.LoanedBooksByUserListView.as_view(), name='my-borrowed'),
+    path('authors_add/', views.authors_add, name='authors_add'),
 ]

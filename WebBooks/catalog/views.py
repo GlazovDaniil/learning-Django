@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from .models import Books, Autor, BookInstance, Genre
 from django.views import generic
 from django.contrib.auth import logout
@@ -68,6 +68,38 @@ def authors_add(request):
     author = Autor.objects.all()
     author_form = AuthorsForm()
     return render(request, "catalog/authors_add.html", {'form': author_form, 'author': author})
+
+def create(request):
+    if request.method == "POST":
+        author = Autor()
+        author.name = request.POST.get("name")
+        author.last_name = request.POST.get("last_name")
+        author.date_of_birth = request.POST.get("date_of_birth")
+        author.date_of_death = request.POST.get("date_of_death")
+        author.save()
+        return HttpResponseRedirect("/authors_add/")
+
+def delete(request, id):
+    try:
+        athor = Autor.objects.get(id=id)
+        athor.delete()
+        return HttpResponseRedirect("/authors_add/")
+    except Autor.DoesNotExist:
+        return HttpResponseNotFound("<h2>Автор не найден</h2>")
+
+
+def edit1(request, id):
+    author = Autor.objects.get(id=id)
+    if request.method == "POST":
+        author.name = request.POST.get("name")
+        author.last_name = request.POST.get("last_name")
+        author.date_of_birth = request.POST.get("date_of_birth")
+        author.date_of_death = request.POST.get("date_of_death")
+        author.save()
+        return HttpResponseRedirect("/authors_add/")
+    else:
+        return render(request, "edit1.html", {"author": author})
+
 
     """
     В этих фильтрах использован формат: field_name__match_type, где field_name- имя
